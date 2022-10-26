@@ -1,0 +1,14 @@
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/AdBlock.module
+https://raw.githubusercontent.com/ShAlIow/shadowrocket-rules/main/bilibil4k.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/camscanner.sgmodule
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/hbxw.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/nicegram.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/startingad.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/wechatad.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/weiboad.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/WPS.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/xmind.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/weibolitead.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/doc.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/notability.module
+https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/baiducloud.sgmodule
