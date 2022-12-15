@@ -1,0 +1,9 @@
+#!name=阿里云盘主页ad优化
+#!desc=去主页多余模块
+
+
+[Script]
+阿里云盘主页ad优化=type=http-response,pattern=^https?:\/\/api\.aliyundrive\.com\/apps\/v\d\/users\/apps\/widgets$,requires-body=1,script-path=https://raw.githubusercontent.com/ShAlIow/Cuttlefish/main/Script/alidrive.js
+
+[mitm]
+hostname= %APPEND% api.aliyundrive.com
