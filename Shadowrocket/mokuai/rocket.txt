@@ -12,3 +12,17 @@ https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/we
 https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/doc.module
 https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/notability.module
 https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/main/modules/baiducloud.sgmodule
+https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Surge.sgmodule
+https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule
+https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module
+https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.sgmodule
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Module/General.sgmodule
+https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Surge/Module/BaiduAdBlock.sgmodule
+https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Surge/Module/AdBlock.sgmodule
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.sgmodule
+https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Surge/Module/QzoneAdBlock.sgmodule
+https://raw.githubusercontent.com/chengkongyiban/shadowrocket/main/Block/YTADBlocker.module
+https://raw.githubusercontent.com/ShAlIow/something/main/Shadowrocket/mokuai/AD-weiboguoji.sgmodule
+https://raw.githubusercontent.com/ShAlIow/something/main/Shadowrocket/mokuai/Adblock-1.sgmodule
+https://raw.githubusercontent.com/ShAlIow/something/main/Shadowrocket/mokuai/Stard-adblock.sgmodule
+https://raw.githubusercontent.com/ShAlIow/something/main/Shadowrocket/mokuai/AD-aliyun.sgmodule
