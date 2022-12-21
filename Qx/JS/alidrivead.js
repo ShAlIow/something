@@ -17,7 +17,7 @@
 [rewrite_local]
 
 # ～ 阿里云盘（2022-10-16）@ddgksf2013
-^https?:\/\/api\.aliyundrive\.com\/apps\/v\d\/users\/apps\/widgets$ url script-response-body https://raw.githubusercontent.com/ShAlIow/something/main/Qx/JS/alidrive.js
+^https?:\/\/api\.aliyundrive\.com\/apps\/v\d\/users\/apps\/widgets$ url script-response-body https://raw.githubusercontent.com/ShAlIow/something/main/Qx/JS/alidrivead.js
 
 [mitm]
 
