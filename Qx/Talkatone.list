@@ -1,0 +1,22 @@
+# NAME: Talkatone
+# AUTHOR: ShAlIow
+# REPO: https://github.com/ShAlIow/something
+# UPDATED: 2023-08-13
+# HOST: 1
+# HOST-SUFFIX: 3
+# HOST-KEYWORD: 7
+# USER-AGENT: 1
+# TOTAL: 12
+
+HOST, itunes.apple.com, Talkatone
+HOST-SUFFIX, branch.io, Talkatone
+HOST-SUFFIX, mobilefuse.com, Talkatone
+HOST-SUFFIX, tktn.be, Talkatone
+HOST-KEYWORD, 69.46.75, Talkatone
+HOST-KEYWORD, googlesyndication, Talkatone
+HOST-KEYWORD, firebase, Talkatone
+HOST-KEYWORD, talkmeim, Talkatone
+HOST-KEYWORD, app-measurement, Talkatone
+HOST-KEYWORD, talkatone, Talkatone
+HOST-KEYWORD, doubleclick-cn, Talkatone
+USER-AGENT, talkmeim*, Talkatone
