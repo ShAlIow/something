@@ -1,0 +1,24 @@
+# NAME: iwall
+# AUTHOR: ShAlIow
+# REPO: https://github.com/ShAlIow/something
+# UPDATED: 2023-010-13
+# HOST: 13
+# HOST-SUFFIX: 0
+# HOST-KEYWORD: 0
+# USER-AGENT: 0
+# IP-CIDR: 0
+# TOTAL: 13
+
+host, appsdk.9imobi.com, iwall
+host, sdk.e.qq.com, iwall
+host, alogs.umengcloud.com, iwall
+host, uop.umeng.com, iwall
+host, alogs.umeng.com, iwall
+host, smr.snssdk.com, iwall
+host, reg.9imobi.com, iwall
+host, adsdk.9imobi.com, iwall
+host, pad.1812355.com, iwall
+host, appsupport.qq.com, iwall
+host, dm.toutiao.com, iwall
+host, sf3-fe-tos.pglstatp-toutiao.com, iwall
+host, log.umtrack.com, iwall
