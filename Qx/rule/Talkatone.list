@@ -1,12 +1,12 @@
 # NAME: Talkatone
 # AUTHOR: ShAlIow
 # REPO: https://github.com/ShAlIow/something
-# UPDATED: 2023-08-13
-# HOST-SUFFIX: 1
-# HOST-KEYWORD: 2
+# UPDATED: 2024-04-15
+# HOST-SUFFIX: 6
+# HOST-KEYWORD: 3
 # USER-AGENT: 1
-# IP-CIDR: 3
-# TOTAL: 7
+# IP-CIDR: 5
+# TOTAL: 15
 
 HOST-SUFFIX, tktn.be, Talkatone
 HOST-SUFFIX, talkatone.com,Talkatone
