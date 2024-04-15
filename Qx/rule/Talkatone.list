@@ -8,23 +8,24 @@
 # IP-CIDR: 5
 # TOTAL: 15
 
+HOST-SUFFIX, tktn.at, Talkatone
+#下面这个要代理了 直连一直转圈
 # HOST-SUFFIX, tktn.be, Talkatone
 HOST-SUFFIX, talkatone.com,Talkatone
-HOST-SUFFIX, mobilefuse.com, Talkatone
-HOST-SUFFIX, inmobi.com, Talkatone
-HOST-SUFFIX, tenor.com, Talkatone
-HOST-SUFFIX, tktn.at, Talkatone
-HOST-SUFFIX, crashlytics.com, Talkatone
-HOST-SUFFIX, kochava.com, Talkatone
-HOST-SUFFIX, cohere.com, Talkatone
-HOST-SUFFIX, ip-api.com, Talkatone
-HOST-SUFFIX, agkn.com, Talkatone
-
+#下面这些是提供广告和用户数据分析的域名 看需要开启
+# HOST-SUFFIX, mobilefuse.com, Talkatone
+# HOST-SUFFIX, inmobi.com, Talkatone
+# HOST-SUFFIX, tenor.com, Talkatone
+# HOST-SUFFIX, crashlytics.com, Talkatone
+# HOST-SUFFIX, kochava.com, Talkatone
+# HOST-SUFFIX, cohere.com, Talkatone
+# HOST-SUFFIX, ip-api.com, Talkatone
+# HOST-SUFFIX, agkn.com, Talkatone
 
 # HOST-KEYWORD, tktn, Talkatone
-# HOST-KEYWORD, talkmeim, Talkatone
-# HOST-KEYWORD, talkatone, Talkatone
-# USER-AGENT, talkmeim*, Talkatone
+HOST-KEYWORD, talkmeim, Talkatone
+HOST-KEYWORD, talkatone, Talkatone
+USER-AGENT, talkmeim*, Talkatone
 IP-CIDR, 50.117.27.0/24, Talkatone
 IP-CIDR, 69.46.75.0/24, Talkatone
 IP-CIDR, 205.164.56.0/24, Talkatone
