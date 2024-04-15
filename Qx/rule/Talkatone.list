@@ -2,24 +2,32 @@
 # AUTHOR: ShAlIow
 # REPO: https://github.com/ShAlIow/something
 # UPDATED: 2024-04-15
-# HOST-SUFFIX: 6
+# HOST-SUFFIX: 11
 # HOST-KEYWORD: 3
 # USER-AGENT: 1
 # IP-CIDR: 5
 # TOTAL: 15
 
-HOST-SUFFIX, tktn.be, Talkatone
+# HOST-SUFFIX, tktn.be, Talkatone
 HOST-SUFFIX, talkatone.com,Talkatone
 HOST-SUFFIX, mobilefuse.com, Talkatone
 HOST-SUFFIX, inmobi.com, Talkatone
 HOST-SUFFIX, tenor.com, Talkatone
 HOST-SUFFIX, tktn.at, Talkatone
-HOST-KEYWORD, tktn, Talkatone
-HOST-KEYWORD, talkmeim, Talkatone
-HOST-KEYWORD, talkatone, Talkatone
-USER-AGENT, talkmeim*, Talkatone
+HOST-SUFFIX, crashlytics.com, Talkatone
+HOST-SUFFIX, kochava.com, Talkatone
+HOST-SUFFIX, cohere.com, Talkatone
+HOST-SUFFIX, ip-api.com, Talkatone
+HOST-SUFFIX, agkn.com, Talkatone
+
+
+# HOST-KEYWORD, tktn, Talkatone
+# HOST-KEYWORD, talkmeim, Talkatone
+# HOST-KEYWORD, talkatone, Talkatone
+# USER-AGENT, talkmeim*, Talkatone
 IP-CIDR, 50.117.27.0/24, Talkatone
 IP-CIDR, 69.46.75.0/24, Talkatone
 IP-CIDR, 205.164.56.0/24, Talkatone
 IP-CIDR, 63.251.124.0/24, Talkatone
 IP-CIDR, 205.164.56.29/24, Talkatone
+
