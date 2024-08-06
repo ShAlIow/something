@@ -1,0 +1,20 @@
+# NAME: Talkatone
+# AUTHOR: ShAlIow
+# REPO: https://github.com/ShAlIow/something
+# UPDATED: 2024-08-06
+# HOST-SUFFIX: 2
+# HOST-KEYWORD: 2
+# USER-AGENT: 1
+# IP-CIDR: 5
+# TOTAL: 10
+
+DOMAIN-SUFFIX,tktn.at
+DOMAIN-SUFFIX,talkatone.com
+DOMAIN-KEYWORD,talkmeim
+DOMAIN-KEYWORD,talkatone
+USER-AGENT,talkmeim*
+IP-CIDR,50.117.27.0/24,no-resolve
+IP-CIDR,69.46.75.0/24,no-resolve
+IP-CIDR,205.164.56.0/24,no-resolve
+IP-CIDR,63.251.124.0/24,no-resolve
+IP-CIDR,205.164.56.29/24,no-resolve
