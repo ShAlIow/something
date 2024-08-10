@@ -53,3 +53,6 @@ DOMAIN,th.pinduoduo.com,REJECT
 精简首页 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
 
 拼多多去广告 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
+
+[MITM]
+hostname = %APPEND% api.pinduoduo.com
