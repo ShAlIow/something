@@ -1,0 +1,55 @@
+#!name=拼多多去广告
+#!desc=移除开屏广告、底栏多多视频、会场入口、聊天页面精选推荐及推广、精简我的页面。
+#!author=ZenmoFeiShi
+#!icon=https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/PinDuoDuo.png
+#!open=https://apps.apple.com/app/id1044283059
+#!tag=去广告, ZenmoFeiShi
+#!system=ios
+#!loon_version=3.2.1(372)
+#!homepage=https://gitlab.com/lodepuly/vpn_tool/-/blob/master/README.md
+#!date=2024-08-11 01:20:52
+
+[Rule]
+# 拦截HTTPDNS
+URL-REGEX,^http:\/\/81\.69\.130\.131\/d,REJECT
+URL-REGEX,^http:\/\/101\.35\.204\.35\/d,REJECT
+URL-REGEX,^http:\/\/101\.35\.212\.35\/d,REJECT
+URL-REGEX,^http:\/\/114\.110\.96\.26\/d,REJECT
+URL-REGEX,^http:\/\/114\.110\.97\.30\/d,REJECT
+URL-REGEX,^http:\/\/114\.110\.97\.97\/d,REJECT
+URL-REGEX,^http:\/\/121\.5\.84\.85\/d,REJECT
+DOMAIN,titan.pinduoduo.com,REJECT
+DOMAIN,apm-a.pinduoduo.com,REJECT
+DOMAIN,apm.pinduoduo.com,REJECT
+DOMAIN,m.pinduoduo.net,REJECT
+DOMAIN,ta-a.pinduoduo.com,REJECT
+DOMAIN,ta.pinduoduo.com,REJECT
+DOMAIN,th-a.pinduoduo.com,REJECT
+DOMAIN,th-b.pinduoduo.com,REJECT
+DOMAIN,th.pinduoduo.com,REJECT
+
+[Map Local]
+^https:\/\/api\.pinduoduo\.com\/search_hotquery data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes data-type=text data="{https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json}" status-code=200
+
+[Script]
+拼多多去广告 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
+
+精简首页 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
+
+拼多多去广告 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
