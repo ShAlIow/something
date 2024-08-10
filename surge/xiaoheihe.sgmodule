@@ -11,7 +11,7 @@
 
 [Map Local]
 # 开屏广告
-^https:\/\/api\.xiaoheihe\.cn\/account\/get_ads_info_v2 data-type=file data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https:\/\/api\.xiaoheihe\.cn\/account\/get_ads_info_v2 data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
 
 [Script]
 # 移除热点板块信息流广告
