@@ -63,5 +63,3 @@ DOMAIN-SUFFIX,163jiasu.com,REJECT
 
 [MITM]
 hostname = %APPEND% interface*.music.163.com
-[MITM]
-hostname = %APPEND% interface.music.163.com, interface3.music.163.com, ipv4.music.163.com
