@@ -17,13 +17,21 @@ from pagermaid.utils import client as http_client, alias_command
 def get_filename_from_url(url):
     max_redirects = 5
     max_response_size = 10 * 1024 * 1024  # 10 MB
+    max_retries = 3  # 最大重试次数
 
     def safe_request(url, headers, timeout=10):
-        response = requests.get(url, headers=headers, timeout=timeout, stream=True)
-        if int(response.headers.get('Content-Length', 0)) > max_response_size:
-            response.close()
-            raise Exception("Response too large")
-        return response
+        retries = 0
+        while retries < max_retries:
+            try:
+                response = requests.get(url, headers=headers, timeout=timeout, stream=True)
+                if int(response.headers.get('Content-Length', 0)) > max_response_size:
+                    response.close()
+                    raise Exception("Response too large")
+                return response
+            except requests.exceptions.RequestException as e:
+                retries += 1
+                if retries >= max_retries:
+                    raise e
 
     if "sub?target=" in url:
         pattern = r"url=([^&]*)"
@@ -60,12 +68,15 @@ def get_filename_from_url(url):
             base_url = None
             if match:
                 base_url = match.group(1) + match.group(2)
-            response = safe_request(url=base_url + '/auth/login', headers=headers, timeout=10)
+            response = safe_request(url=base_url + '/auth/login', headers=headers, timeout=20)  # 增加超时时间
             if response.status_code != 200:
-                response = safe_request(base_url, headers=headers, timeout=1)
+                response = safe_request(base_url, headers=headers, timeout=20)  # 增加超时时间
             html = response.content
             soup = BeautifulSoup(html, 'html.parser')
-            title = soup.title.string
+            title_tag = soup.title
+            if title_tag is None:
+                return '未知 (Error: No title found)'
+            title = title_tag.string
             print(f"Parsed title: {title}")  # 调试信息
             title = str(title).replace('登录 — ', '')
             if "Attention Required! | Cloudflare" in title:
@@ -114,7 +125,7 @@ def StrOfSize(size):
 
 
 @listener(is_plugin=True, outgoing=True, command=alias_command("cha"),
-          description='识别订阅链接并获取信息\n使用方法：使用该命令发送或回复一段带有一条或多条订阅链接的文本',
+          description='识别���阅链接并获取信息\n使用方法：使用该命令发送或回复一段带有一条或多条订阅链接的文本',
           parameters='<url>')
 async def subinfo(_, msg: Message):
     headers = {
