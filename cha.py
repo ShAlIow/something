@@ -48,8 +48,8 @@ def get_filename_from_url(url):
                     filename = parse.unquote(filename)  # 对文件名进行解码
                     airport_name = filename.replace("%20", " ").replace("%2B", "+")
                     return airport_name
-        except:
-            return '未知'
+        except Exception as e:
+            return f'未知 (Error: {e})'
     else:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) '
@@ -61,15 +61,12 @@ def get_filename_from_url(url):
             if match:
                 base_url = match.group(1) + match.group(2)
             response = safe_request(url=base_url + '/auth/login', headers=headers, timeout=10)
-            # 删除 Content-Disposition 头部检查
-            # header = response.headers.get('Content-Disposition')
-            # if header:
-            #     return '未知'
             if response.status_code != 200:
                 response = safe_request(base_url, headers=headers, timeout=1)
             html = response.content
             soup = BeautifulSoup(html, 'html.parser')
             title = soup.title.string
+            print(f"Parsed title: {title}")  # 调试信息
             title = str(title).replace('登录 — ', '')
             if "Attention Required! | Cloudflare" in title:
                 title = '该域名仅限国内IP访问'
@@ -80,8 +77,8 @@ def get_filename_from_url(url):
             else:
                 pass
             return title
-        except:
-            return '未知'
+        except Exception as e:
+            return f'未知 (Error: {e})'
 
 
 def convert_time_to_str(ts):
@@ -136,8 +133,8 @@ async def subinfo(_, msg: Message):
                 while res.status_code == 301 or res.status_code == 302:
                     url1 = res.headers['location']
                     res = await http_client.get(url1, headers=headers, timeout=5)
-            except:
-                final_output = final_output + '连接错误' + '\n\n'
+            except Exception as e:
+                final_output = final_output + f'连接错误 (Error: {e})' + '\n\n'
                 continue
             if res.status_code == 200:
                 try:
@@ -160,11 +157,11 @@ async def subinfo(_, msg: Message):
                             output_text = output_text_head + '`\n此订阅已于`' + dateTime + '`过期！'
                     else:
                         output_text = output_text_head + '`\n到期时间：`未知`'
-                except:
-                    output_text = '订阅链接：`' + url + '`\n机场名：`' + get_filename_from_url(url) + '`\n无流量信息'
+                except Exception as e:
+                    output_text = '订阅链接：`' + url + '`\n机场名：`' + get_filename_from_url(url) + '`\n无流量信息 (Error: {e})'
             else:
                 output_text = '无法访问'
             final_output = final_output + output_text + '\n\n'
         await msg.edit(final_output)
-    except:
-        await msg.edit('参数错误')
+    except Exception as e:
+        await msg.edit(f'参数错误 (Error: {e})')
