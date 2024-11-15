@@ -61,9 +61,10 @@ def get_filename_from_url(url):
             if match:
                 base_url = match.group(1) + match.group(2)
             response = safe_request(url=base_url + '/auth/login', headers=headers, timeout=10)
-            header = response.headers.get('Content-Disposition')
-            if header:
-                return '未知'
+            # 删除 Content-Disposition 头部检查
+            # header = response.headers.get('Content-Disposition')
+            # if header:
+            #     return '未知'
             if response.status_code != 200:
                 response = safe_request(base_url, headers=headers, timeout=1)
             html = response.content
