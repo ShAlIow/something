@@ -15,6 +15,16 @@ from pagermaid.utils import client as http_client, alias_command
 
 # 此版本是修改版的修改版， @fffffx2 修改后, @xream 修改
 def get_filename_from_url(url):
+    max_redirects = 5
+    max_response_size = 10 * 1024 * 1024  # 10 MB
+
+    def safe_request(url, headers, timeout=10):
+        response = requests.get(url, headers=headers, timeout=timeout, stream=True)
+        if int(response.headers.get('Content-Length', 0)) > max_response_size:
+            response.close()
+            raise Exception("Response too large")
+        return response
+
     if "sub?target=" in url:
         pattern = r"url=([^&]*)"
         match = re.search(pattern, url)
@@ -43,17 +53,19 @@ def get_filename_from_url(url):
     else:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) '
-                          'Chrome/108.0.0.0'
-                          'Safari/537.36'}
+                          'Chrome/108.0.0.0 Safari/537.36'}
         try:
             pattern = r'(https?://)([^/]+)'
             match = re.search(pattern, url)
             base_url = None
             if match:
                 base_url = match.group(1) + match.group(2)
-            response = requests.get(url=base_url + '/auth/login', headers=headers, timeout=10)
+            response = safe_request(url=base_url + '/auth/login', headers=headers, timeout=10)
+            header = response.headers.get('Content-Disposition')
+            if header:
+                return '未知'
             if response.status_code != 200:
-                response = requests.get(base_url, headers=headers, timeout=1)
+                response = safe_request(base_url, headers=headers, timeout=1)
             html = response.content
             soup = BeautifulSoup(html, 'html.parser')
             title = soup.title.string
