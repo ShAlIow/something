@@ -1,8 +1,9 @@
 /**
+
 #!name=JD Cookie Auto Update
 #!desc=自动更新京东Cookie到青龙面板，surge修改到loon版，无法自动关闭插件，请获取并替换ck后手动关闭插件。
 #!author=[Elvis](https://github.com/ShAlIow)修改
-#!homepage=https://raw.githubusercontent.com/ShAlIow/something/Loon/chajian/autorenewptkey.plugin
+#!homepage=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/chajian/autorenewptkey.plugin
 #!icon=
 #!tag = 增强功能
 #!input = qinglongHost
@@ -11,7 +12,7 @@
 
 
 [Script]
-http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/ShAlIow/something/Loon/ptkey.js,requires-body=true,tag=JD Cookie Script,enable=true
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/ptkey.js,requires-body=true,tag=JD Cookie Script,enable=true
 
 [MITM]
 hostname = %APPEND% api.m.jd.com
