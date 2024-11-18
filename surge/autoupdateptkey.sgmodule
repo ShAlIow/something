@@ -1,10 +1,10 @@
 #!name=pt_key
 #!desc=Auto update pt_key
 #!system=ios
-#!arguments=qinglongHost:http://192.168.1.2:5700,clientId:"",clientSecret:""
+#!arguments=qinglongHost:"",clientId:"",clientSecret:""
 
 [Script]
-http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://raw.githubusercontent.com/ShAlIow/something/main/surge/pt_key.js, argument=qinglongHost={{{qinglongHost}}}&clientId={{{clientId}}}&clientSecret={{{clientSecret}}}
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://raw.githubusercontent.com/ShAlIow/something/main/surge/pt_key.js, argument=qinglongHost=https://ql.518688.xyz&clientId=BgGz0c_0XrH_&clientSecret=kM5Sk5pIv3-0lwutLfls-WIU
 
 [MITM]
 hostname = %APPEND% api.m.jd.com
