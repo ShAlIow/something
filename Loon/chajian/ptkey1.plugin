@@ -11,7 +11,7 @@ clientId = input,"",tag=Client ID,desc=请输入青龙的 Client ID
 clientSecret = input,"",tag=Client Secret,desc=请输入青龙的 Client Secret
 
 [Script]
-http-response ^https?:\/\/api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=true, script-path=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/ptkey1.js, tag=JD Cookie Script, argument=[{qinglongHost},{clientId},{clientSecret}]
+http-response ^https?:\/\/api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/ptkey1.js,requires-body=true,tag=JD Cookie Script,argument=[{qinglongHost},{clientId},{clientSecret}],enable=true
 
 [MITM]
-hostname = api.m.jd.com
+hostname = %APPEND% api.m.jd.com
