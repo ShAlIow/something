@@ -78,8 +78,8 @@ var jdCookie = CV.match(/pt_pin=.+?;/) + CV.match(/pt_key=.+?;/);
 // 获取青龙令牌
 function getQinglongToken() {
     return new Promise((resolve) => {
-        const tokenUrl = `${qinglongHost}/api/user/token?client_id=${clientId}&client_secret=${clientSecret}`;
-        $httpClient.post(tokenUrl, (error, response, data) => {
+        const tokenUrl = qinglongHost + "/open/auth/token?client_id=" + clientId + "&client_secret=" + clientSecret;
+        $httpClient.get(tokenUrl, (error, response, data) => {
             if (error) {
                 console.log('获取青龙令牌时发生错误：' + error);
                 resolve(false);
