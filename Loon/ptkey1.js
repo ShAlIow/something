@@ -1,16 +1,33 @@
+/**
+#!name=JD Cookie Auto Update
+#!desc=自动更新京东Cookie到青龙面板，surge修改到loon版，无法自动关闭插件，请获取并替换ck后手动关闭插件。
+#!author=Elvis[https://github.com/ShAlIow]修改
+#!homepage=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/chajian/autorenewptkey.plugin
+#!icon=
+#!tag = 增强功能
+#!input = qinglongHost
+#!input = clientId
+#!input = clientSecret
+
+
+[Script]
+http-response ^https?:\/\/api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/ShAlIow/something/main/Loon/ptkey.js,requires-body=true,tag=JD Cookie Script,enable=true
+
+[MITM]
+hostname = %APPEND% api.m.jd.com
+ */
 // 参数处理
-let qinglongHost = $argument[0];
-let clientId = $argument[1];
-let clientSecret = $argument[2];
+const qinglongHost = $argument.qinglongHost;
+const clientId = $argument.clientId;
+const clientSecret = $argument.clientSecret;
 
 console.log("qinglongHost = " + qinglongHost);
 
 if (!qinglongHost || !clientId || !clientSecret) {
-    console.log("请在插件配置中填写必要的参数。");
+    console.log("请配置插件参数。");
     $done();
 }
-
-// 公共变量
+ // 公共变量
 let qinglongToken = "";
 let qinglongEnvId = 0;
 
@@ -18,12 +35,13 @@ let qinglongEnvId = 0;
 var CV = $request.headers["Cookie"] || $request.headers["cookie"];
 var jdCookie = CV.match(/pt_pin=.+?;/) + CV.match(/pt_key=.+?;/);
 
+//主函数
 (async function () {
     // 获取 qinglong Token
     await getQinglongToken();
 
     if (!qinglongToken) {
-        console.log('无法获取青龙 Token。');
+        console.log('Can not get qinglong token.');
         $done();
         return;
     }
@@ -31,7 +49,7 @@ var jdCookie = CV.match(/pt_pin=.+?;/) + CV.match(/pt_key=.+?;/);
     // 获取 JD_COOKIE 的 envId
     await getQinglongEnvId();
     if (!qinglongEnvId) {
-        console.log('无法获取 JD_COOKIE 的环境变量 ID。');
+        console.log('Can not get JD_COOKIE env id.');
         $done();
         return;
     }
@@ -43,11 +61,12 @@ var jdCookie = CV.match(/pt_pin=.+?;/) + CV.match(/pt_key=.+?;/);
         updateQinglongEnvStatus()
     ]);
 
-    $notification.post("pt_key 更新成功", "", "已成功更新 JD_COOKIE。");
-
+    // 发送通知，更新成功
+    $notification.post("pt_key", "", "Update success!");
     $done();
 })();
 
+// 获取 Qinglong Token
 function getQinglongToken() {
     return new Promise(async (resolve) => {
         $httpClient.get(
@@ -72,7 +91,7 @@ function getQinglongToken() {
                         throw new Error('get qinglong token error.');
                     }
                 } catch (e) {
-                    console.log(`\nerror: ${e.message}`);
+                    console.log(`error: ${e.message}`);
                 } finally {
                     resolve();
                 }
@@ -81,6 +100,7 @@ function getQinglongToken() {
     });
 }
 
+//获取 Qinglong EnvId
 function getQinglongEnvId() {
     return new Promise(async (resolve) => {
         $httpClient.get(
@@ -110,7 +130,7 @@ function getQinglongEnvId() {
                         throw new Error('get qinglong evn id error.');
                     }
                 } catch (e) {
-                    console.log(`\nerror: ${e.message}`);
+                    console.log(`error: ${e.message}`);
                 } finally {
                     resolve();
                 }
@@ -119,6 +139,7 @@ function getQinglongEnvId() {
     });
 }
 
+//更新青龙环境变量值
 function updateQinglongEnvValue() {
     return new Promise(async (resolve) => {
         $httpClient.put(
@@ -138,6 +159,7 @@ function updateQinglongEnvValue() {
     });
 }
 
+// 更新青龙环境变量状态
 function updateQinglongEnvStatus() {
     return new Promise(async (resolve) => {
         $httpClient.put(
