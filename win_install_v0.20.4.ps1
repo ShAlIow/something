@@ -1,4 +1,4 @@
-# Get server and key
+# 获取服务器地址和密钥
 param($server, $key, $tls)
 
 if ($PSVersionTable.PSVersion.Major -lt 5) {
@@ -22,7 +22,7 @@ if ([System.Environment]::Is64BitOperatingSystem) {
 }
 
 # 如果你不想自动更新，则注释或删除下面这段代码
-<# 
+<#
 if (Test-Path "C:\nezha\nezha-agent.exe") {
     Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
     C:\nezha\nezha-agent.exe service uninstall
