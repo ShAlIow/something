@@ -21,13 +21,12 @@ else {
 $agentreleases = "https://api.github.com/repos/$agentrepo/releases"
 
 #重复运行自动更新
-<#
 if (Test-Path "C:\nezha\nezha-agent.exe") {
     Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
     C:\nezha\nezha-agent.exe service uninstall
     Remove-Item "C:\nezha" -Recurse
 }
-#>
+
 #TLS/SSL
 Write-Host "Determining latest nezha release" -BackgroundColor DarkGreen -ForegroundColor White
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
