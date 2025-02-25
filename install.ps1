@@ -31,7 +31,7 @@ if (Test-Path "C:\nezha\nezha-agent.exe") {
 Write-Host "Determining latest nezha release" -BackgroundColor DarkGreen -ForegroundColor White
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$agenttag = "v0.20.4"
+$agenttag = "v0.20.5"
 <#
 $agenttag = (Invoke-WebRequest -Uri $agentreleases -UseBasicParsing | ConvertFrom-Json)[0].tag_name
 if ([string]::IsNullOrWhiteSpace($agenttag)) {
