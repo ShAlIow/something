@@ -1,9 +1,9 @@
 # 获取服务器地址、密钥和 TLS 参数
-param($server, $key, $tls)
+param($server， $key， $tls)
 
 # 确保 PowerShell 版本 >= 5
 if ($PSVersionTable.PSVersion.Major -lt 5) {
-    Write-Host "Require PS >= 5, your PSVersion:" $PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
+    Write-Host "Require PS >= 5， your PSVersion:" $PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
     Write-Host "Refer to the community article and install manually! https://nyko.me/2020/12/13/nezha-windows-client.html" -BackgroundColor DarkRed -ForegroundColor Green
     exit
 }
@@ -17,7 +17,7 @@ $global:agenttag = "v0.20.4"
 # Debugging: 检查变量是否正确赋值
 Write-Host "Debug: agenttag = $global:agenttag"
 
-# 选择对应的压缩包：x86, x64 或 arm64
+# 选择对应的压缩包：x86， x64 或 arm64
 if ([System.Environment]::Is64BitOperatingSystem) {
     if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") {
         $file = "nezha-agent_windows_arm64.zip"
@@ -48,10 +48,10 @@ echo $ipapi
 # 判断地区并选择下载源
 if ($region -ne "CN") {
     $download = "https://github.com/$agentrepo/releases/download/$global:agenttag/$file"
-    Write-Host "Location: $region, connect directly!" -BackgroundColor DarkRed -ForegroundColor Green
+    Write-Host "Location: $region， connect directly!" -BackgroundColor DarkRed -ForegroundColor Green
 } else {
     $download = "https://gitee.com/naibahq/agent/releases/download/$global:agenttag/$file"
-    Write-Host "Location: CN, use mirror address" -BackgroundColor DarkRed -ForegroundColor Green
+    Write-Host "Location: CN， use mirror address" -BackgroundColor DarkRed -ForegroundColor Green
 }
 
 # Debugging: 输出最终下载地址
