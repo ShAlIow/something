@@ -1,15 +1,18 @@
-# Get server and key
+# 获取服务器地址、密钥和 TLS 参数
 param($server, $key, $tls)
 
+# 检查 PowerShell 版本
 if ($PSVersionTable.PSVersion.Major -lt 5) {
-    Write-Host "Require PS >= 5, your PSVersion:" $PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
-    Write-Host "Refer to the community article and install manually! https://nyko.me/2020/12/13/nezha-windows-client.html" -BackgroundColor DarkRed -ForegroundColor Green
+    Write-Host "需要 PowerShell 版本 >= 5，当前版本：" $PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
+    Write-Host "请参考社区文章手动安装：https://nyko.me/2020/12/13/nezha-windows-client.html" -BackgroundColor DarkRed -ForegroundColor Green
     exit
 }
 
+# 设置 GitHub 仓库和版本
 $agentrepo = "nezhahq/agent"
+$agenttag = "v0.20.4"
 
-# 选择对应的压缩包：x86, x64 或 arm64
+# 根据系统架构选择对应的压缩包
 if ([System.Environment]::Is64BitOperatingSystem) {
     if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") {
         $file = "nezha-agent_windows_arm64.zip"
@@ -20,50 +23,25 @@ if ([System.Environment]::Is64BitOperatingSystem) {
     $file = "nezha-agent_windows_386.zip"
 }
 
-# 固定使用 v0.20.4 版本，不再获取最新版本
-$agenttag = "v0.20.4"
-
-# 如果你不想自动更新，则注释或删除下面这段代码
-<# 
+# 检查是否已存在旧版本的 Nezha Agent
 if (Test-Path "C:\nezha\nezha-agent.exe") {
-    Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
+    Write-Host "检测到已安装的 Nezha Agent，正在卸载旧版本..." -BackgroundColor DarkGreen -ForegroundColor White
     C:\nezha\nezha-agent.exe service uninstall
     Remove-Item "C:\nezha" -Recurse
 }
-#>
 
-# Region 判断（根据 IP 查询所在区域，决定下载地址）
-$ipapi = ""
-$region = "Unknown"
-foreach ($url in ("https://dash.cloudflare.com/cdn-cgi/trace", "https://developers.cloudflare.com/cdn-cgi/trace", "https://1.0.0.1/cdn-cgi/trace")) {
-    try {
-        $ipapi = Invoke-RestMethod -Uri $url -TimeoutSec 5 -UseBasicParsing
-        if ($ipapi -match "loc=(\w+)") {
-            $region = $Matches[1]
-            break
-        }
-    }
-    catch {
-        Write-Host "Error occurred while querying $url : $_"
-    }
-}
-echo $ipapi
-
-if ($region -ne "CN") {
-    $download = "https://github.com/$agentrepo/releases/download/$agenttag/$file"
-    Write-Host "Location: $region, connect directly!" -BackgroundColor DarkRed -ForegroundColor Green
-} else {
-    $download = "https://gitee.com/naibahq/agent/releases/download/$agenttag/$file"
-    Write-Host "Location: CN, use mirror address" -BackgroundColor DarkRed -ForegroundColor Green
-}
-echo $download
+# 设置下载地址
+$download = "https://github.com/$agentrepo/releases/download/$agenttag/$file"
+Write-Host "下载地址：$download" -BackgroundColor DarkGreen -ForegroundColor White
 
 # 下载压缩包到 C:\nezha.zip
-Invoke-WebRequest $download -OutFile "C:\nezha.zip"
+Invoke-WebRequest -Uri $download -OutFile "C:\nezha.zip"
 
-# 解压
-Expand-Archive "C:\nezha.zip" -DestinationPath "C:\temp" -Force
-if (!(Test-Path "C:\nezha")) { New-Item -Path "C:\nezha" -Type Directory }
+# 解压缩
+Expand-Archive -Path "C:\nezha.zip" -DestinationPath "C:\temp" -Force
+if (!(Test-Path "C:\nezha")) {
+    New-Item -Path "C:\nezha" -ItemType Directory
+}
 
 # 移动文件
 Move-Item -Path "C:\temp\nezha-agent.exe" -Destination "C:\nezha\nezha-agent.exe"
@@ -72,7 +50,8 @@ Move-Item -Path "C:\temp\nezha-agent.exe" -Destination "C:\nezha\nezha-agent.exe
 Remove-Item "C:\nezha.zip"
 Remove-Item "C:\temp" -Recurse
 
-# 安装服务
+# 安装并启动服务
 C:\nezha\nezha-agent.exe service install -s $server -p $key $tls
+C:\nezha\nezha-agent.exe service start
 
-Write-Host "Enjoy It!" -BackgroundColor DarkGreen -ForegroundColor Red
+Write-Host "安装完成！" -BackgroundColor DarkGreen -ForegroundColor Red
