@@ -1,22 +1,15 @@
-# 获取服务器地址、密钥和 TLS 参数
+# Get server and key
 param($server, $key, $tls)
 
-# 确保 PowerShell 版本 >= 5
 if ($PSVersionTable.PSVersion.Major -lt 5) {
     Write-Host "Require PS >= 5, your PSVersion:" $PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
     Write-Host "Refer to the community article and install manually! https://nyko.me/2020/12/13/nezha-windows-client.html" -BackgroundColor DarkRed -ForegroundColor Green
     exit
 }
 
-# Nezha 监控 Agent 仓库
 $agentrepo = "nezhahq/agent"
-
-# 确保变量作用域正确
-$global:agenttag = "v0.20.4"
-
-# Debugging: 检查变量是否正确赋值
-Write-Host "Debug: agenttag = $global:agenttag"
-
+# 固定使用 v0.20.4 版本，不再获取最新版本
+$agenttag = "v0.20.4"
 # 选择对应的压缩包：x86, x64 或 arm64
 if ([System.Environment]::Is64BitOperatingSystem) {
     if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") {
@@ -28,7 +21,16 @@ if ([System.Environment]::Is64BitOperatingSystem) {
     $file = "nezha-agent_windows_386.zip"
 }
 
-# 通过 Cloudflare API 查询 IP 位置
+# 如果你不想自动更新，则注释或删除下面这段代码
+<# 
+if (Test-Path "C:\nezha\nezha-agent.exe") {
+    Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
+    C:\nezha\nezha-agent.exe service uninstall
+    Remove-Item "C:\nezha" -Recurse
+}
+#>
+
+# Region 判断（根据 IP 查询所在区域，决定下载地址）
 $ipapi = ""
 $region = "Unknown"
 foreach ($url in ("https://dash.cloudflare.com/cdn-cgi/trace", "https://developers.cloudflare.com/cdn-cgi/trace", "https://1.0.0.1/cdn-cgi/trace")) {
@@ -45,33 +47,30 @@ foreach ($url in ("https://dash.cloudflare.com/cdn-cgi/trace", "https://develope
 }
 echo $ipapi
 
-# 判断地区并选择下载源
 if ($region -ne "CN") {
-    $download = "https://github.com/$agentrepo/releases/download/$global:agenttag/$file"
+    $download = "https://github.com/$agentrepo/releases/download/$agenttag/$file"
     Write-Host "Location: $region, connect directly!" -BackgroundColor DarkRed -ForegroundColor Green
 } else {
-    $download = "https://gitee.com/naibahq/agent/releases/download/$global:agenttag/$file"
+    $download = "https://gitee.com/naibahq/agent/releases/download/$agenttag/$file"
     Write-Host "Location: CN, use mirror address" -BackgroundColor DarkRed -ForegroundColor Green
 }
-
-# Debugging: 输出最终下载地址
-Write-Host "Download URL: $download"
+echo $download
 
 # 下载压缩包到 C:\nezha.zip
 Invoke-WebRequest $download -OutFile "C:\nezha.zip"
 
-# 解压到 C:\temp
+# 解压
 Expand-Archive "C:\nezha.zip" -DestinationPath "C:\temp" -Force
 if (!(Test-Path "C:\nezha")) { New-Item -Path "C:\nezha" -Type Directory }
 
-# 移动文件到 C:\nezha
+# 移动文件
 Move-Item -Path "C:\temp\nezha-agent.exe" -Destination "C:\nezha\nezha-agent.exe"
 
 # 清理临时文件
 Remove-Item "C:\nezha.zip"
 Remove-Item "C:\temp" -Recurse
 
-# 安装并启动 Nezha 监控 Agent
+# 安装服务
 C:\nezha\nezha-agent.exe service install -s $server -p $key $tls
 
 Write-Host "Enjoy It!" -BackgroundColor DarkGreen -ForegroundColor Red
