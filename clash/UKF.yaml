@@ -1,1 +1,133 @@
-UKF.yaml
+payload:
+  - DOMAIN-SUFFIX,tktn.at
+  - DOMAIN-SUFFIX,talkatone.com
+  - DOMAIN-KEYWORD,talkmeim
+  - DOMAIN-KEYWORD,talkatone
+  - USER-AGENT,talkmeim*
+  - IP-CIDR,50.117.27.0/24,no-resolve
+  - IP-CIDR,69.46.75.0/24,no-resolve
+  - IP-CIDR,205.164.56.0/24,no-resolve
+  - IP-CIDR,63.251.124.0/24,no-resolve
+  - IP-CIDR,205.164.56.29/24,no-resolve
+  - IP-CIDR,72.18.158.0/24,no-resolve
+  - IP-CIDR,198.24.161.0/24,no-resolve
+  - IP-CIDR,216.172.154.0/24,no-resolve
+  - IP-CIDR,23.235.228.0/24,no-resolve
+
+# WiFi Calling 地区检测
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,🇬🇧 英国手动切换
+# CMLink UK EE WiFi Calling
+IP-CIDR,46.68.0.0/17,🇬🇧 英国手动切换
+# Giffgaff UK WiFi Calling
+IP-CIDR,87.194.0.0/16,🇬🇧 英国手动切换
+# 英国 Wifi Calling UDP
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), 🇬🇧 英国手动切换
+# 英国 Fintech
+DOMAIN-SUFFIX,online-metrix.net,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,yapily.com,🇬🇧 英国手动切换
+# 英国 Wise
+DOMAIN-SUFFIX,wise.com,🇬🇧 英国手动切换
+DOMAIN,tw-avatar.s3.eu-central-1.amazonaws.com,🇬🇧 英国手动切换
+# Skrill
+DOMAIN-SUFFIX,skrill.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,skrill.uk,🇬🇧 英国手动切换
+# 等枫再来 loqbox
+DOMAIN-SUFFIX,loqbox.com,🇬🇧 英国节点
+# Chase UK
+DOMAIN-SUFFIX,chase.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,chase.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,chase.co.uk,🇬🇧 英国手动切换
+# 信用分查询
+DOMAIN-SUFFIX,creditkarma.co.uk,🇬🇧 英国节点
+DOMAIN-SUFFIX,totallymoney.uk,🇬🇧 英国节点
+DOMAIN-SUFFIX,totallymoney.com,🇬🇧 英国节点
+DOMAIN-SUFFIX,clearscore.com,🇬🇧 英国节点
+DOMAIN-SUFFIX,checkmyfile.com,🇬🇧 英国节点
+DOMAIN-SUFFIX,hellopillar.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,pillar.money,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,experian.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,experianidentityservice.co.uk,🇬🇧 英国手动切换
+# 巴克莱 Barclays
+DOMAIN-SUFFIX,barclays.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,barclays.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,barclays.mobi,🇬🇧 英国手动切换
+DOMAIN,barclaysuk.sc.omtrdc.net,🇬🇧 英国手动切换
+DOMAIN,bclays-ads.aimatch.com,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,barclays,🇬🇧 英国手动切换
+# 瓜娃 MyGuava
+DOMAIN-SUFFIX,guavapay.com,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,myguava,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,guavapay,🇬🇧 英国手动切换
+# 劳埃德小马银行
+DOMAIN-SUFFIX,lloydsbank.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,amazontrust.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,dynatrace.com,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,lloydsbank,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,halifax,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,bankofscotland.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,tsb.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,demdex.net,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,cm.everesttech.net,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,omtrdc.net,🇬🇧 英国手动切换
+# iFast GB
+DOMAIN-SUFFIX,ifastgb.com,👩‍❤️‍💋‍👨 VIP 自动切换
+# WUZO
+DOMAIN-SUFFIX,wuzo.co.uk,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,wuzo.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,api.ipify.org,🇬🇧 英国手动切换
+# Zilch
+DOMAIN-SUFFIX,payzilch.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,eu.intercom.io,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,verygoodvault.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,verygood.systems,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,appsflyer.com,🇬🇧 英国手动切换
+# Curve UK
+DOMAIN-SUFFIX,curve.app,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,branch.io,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,emb-api.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,imaginecurve.com,🇬🇧 英国手动切换
+# Stripe
+DOMAIN-SUFFIX,stripe.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,sprig.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,stripe.uk,🇬🇧 英国手动切换
+# 蒙佐 Monzo
+DOMAIN-SUFFIX,monzo-alt.net,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,monzo.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,monzo.statuspage.io,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,monzo.me,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,nonprod-ffs.io,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,monzo,,🇬🇧 英国手动切换
+# LemFi
+DOMAIN-SUFFIX,lemfi.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,branch.io,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,appsflyer.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,customer.io,🇬🇧 英国手动切换
+# FreeTrade
+DOMAIN-SUFFIX,freetrade.io,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,algolia.net,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,asnapieu.com,🇬🇧 英国手动切换
+# TD 212 UK
+DOMAIN-SUFFIX,trading212.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,appsflyersdk.com,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,trading212,🇬🇧 英国手动切换
+# AQUA 信用卡
+DOMAIN-SUFFIX,newdaycards.com,🇬🇧 英国手动切换
+DOMAIN-KEYWORD,newdaycards,🇬🇧 英国手动切换
+# moneybox
+DOMAIN-SUFFIX,moneyboxapp.com,🇬🇧 英国手动切换
+DOMAIN-SUFFIX,browser-intake-datadoghq.eu,🇬🇧 英国手动切换
+# PaySend
+DOMAIN-SUFFIX,paysend.io,🇬🇧 英国手动切换
+# 汇丰 HSBC UK
+DOMAIN-SUFFIX,hsbc.co.uk,🇬🇧 英国手动切换
+# Top Cashback
+DOMAIN-SUFFIX,topcashback.com,🇬🇧 英国手动切换
+# Kroo
+DOMAIN-SUFFIX,kroo.com,🇬🇧 英国手动切换
+# 热气球 Uphold
+DOMAIN-SUFFIX,uphold.com,🇬🇧 英国手动切换
+# UK域名兜底
+DOMAIN-SUFFIX,co.uk,🇬🇧 英国节点
+# GiffGaff 分流
+DOMAIN,report.giffgaff.gbqofs.io,🇬🇧 英国节点
+DOMAIN-SUFFIX,giffgaff.com,🇬🇧 英国节点
