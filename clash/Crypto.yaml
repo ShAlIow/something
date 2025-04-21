@@ -14,3 +14,7 @@ payload:
   - DOMAIN-SUFFIX,bybit-global.com
   # Coinbase DE
   - DOMAIN-KEYWORD,coinbase
+  # mexc抹茶
+  - DOMAIN-KEYWORD,mexc
+  # neverless 
+  - DOMAIN-KEYWORD,neverless
