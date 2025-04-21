@@ -1,4 +1,6 @@
 payload:
+  # 德国 Telekom 分流
+  #- DOMAIN-SUFFIX,telekom.de
   # 德国银行 Fintech
   - DOMAIN-SUFFIX,n26.com
   - DOMAIN-SUFFIX,tech26.de
