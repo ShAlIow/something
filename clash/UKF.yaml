@@ -55,7 +55,7 @@ payload:
   - DOMAIN-SUFFIX,cm.everesttech.net
   - DOMAIN-SUFFIX,omtrdc.net
   # iFast GB
-  - DOMAIN-SUFFIX,ifastgb.com
+  #- DOMAIN-SUFFIX,ifastgb.com
   # WUZO
   - DOMAIN-SUFFIX,wuzo.co.uk
   - DOMAIN-SUFFIX,wuzo.com
@@ -67,7 +67,7 @@ payload:
   - DOMAIN-SUFFIX,verygood.systems
   - DOMAIN-SUFFIX,appsflyer.com
   # Curve UK
-  - DOMAIN-SUFFIX,curve.app
+  #- DOMAIN-SUFFIX,curve.app
   - DOMAIN-SUFFIX,branch.io
   - DOMAIN-SUFFIX,emb-api.com
   - DOMAIN-SUFFIX,imaginecurve.com
