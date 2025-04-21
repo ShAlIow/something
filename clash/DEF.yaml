@@ -1,13 +1,13 @@
-DEF.yaml
-# 德国银行 Fintech
-DOMAIN-SUFFIX,n26.com,🇩🇪 德国 ISP
-DOMAIN-SUFFIX,tech26.de,🇩🇪 德国 ISP
-DOMAIN-SUFFIX,c24.de,🇩🇪 德国手动切换
-DOMAIN-SUFFIX,curve.app,🇩🇪 德国 ISP
-DOMAIN-SUFFIX,vivid.money,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,sardine,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,siftscience,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,westernunion,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,bunq,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,curve,🇩🇪 德国 ISP
-DOMAIN-KEYWORD,bonify,🇩🇪 德国节点
+payload:
+  # 德国银行 Fintech
+  - DOMAIN-SUFFIX,n26.com
+  - DOMAIN-SUFFIX,tech26.de
+  - DOMAIN-SUFFIX,c24.de
+  - DOMAIN-SUFFIX,curve.app
+  - DOMAIN-SUFFIX,vivid.money
+  - DOMAIN-KEYWORD,sardine
+  - DOMAIN-KEYWORD,siftscience
+  - DOMAIN-KEYWORD,westernunion
+  - DOMAIN-KEYWORD,bunq
+  - DOMAIN-KEYWORD,curve
+  - DOMAIN-KEYWORD,bonify
