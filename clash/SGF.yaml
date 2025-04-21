@@ -1,7 +1,7 @@
-SGF.yaml
-# OCBC SG
-DOMAIN,ocbcstack-prd-cdn.ascentismedia.com,🇸🇬 新加坡节点
-DOMAIN,ocbc.data.adobedc.net,🇸🇬 新加坡节点
-DOMAIN,zn1zóngdutm8gqq18-ocbc.siteintercept.qualtrics.com,🇸🇬 新加坡节点
-DOMAIN-SUFFIX,starhub.com,🇸🇬 新加坡节点
-DOMAIN-SUFFIX,ocbc.com,🇸🇬 新加坡节点
+payload:
+  # OCBC SG
+  - DOMAIN,ocbcstack-prd-cdn.ascentismedia.com
+  - DOMAIN,ocbc.data.adobedc.net
+  - DOMAIN,zn1zóngdutm8gqq18-ocbc.siteintercept.qualtrics.com
+  - DOMAIN-SUFFIX,starhub.com
+  - DOMAIN-SUFFIX,ocbc.com
