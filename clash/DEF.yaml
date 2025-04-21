@@ -1,1 +1,13 @@
 DEF.yaml
+# 德国银行 Fintech
+DOMAIN-SUFFIX,n26.com,🇩🇪 德国 ISP
+DOMAIN-SUFFIX,tech26.de,🇩🇪 德国 ISP
+DOMAIN-SUFFIX,c24.de,🇩🇪 德国手动切换
+DOMAIN-SUFFIX,curve.app,🇩🇪 德国 ISP
+DOMAIN-SUFFIX,vivid.money,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,sardine,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,siftscience,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,westernunion,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,bunq,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,curve,🇩🇪 德国 ISP
+DOMAIN-KEYWORD,bonify,🇩🇪 德国节点
