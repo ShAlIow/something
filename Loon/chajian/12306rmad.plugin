@@ -1,0 +1,34 @@
+#!name=12306
+#!desc=12306广告进行拦截，某些APP要清除缓存或者重新安装拦截广告才会生效！规则明细可以查看本插件的注释
+#!rule-details= 12306
+#!author=elvis[https://github.com/ShAlIow]
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/ShAlIow/something/raw/main/Loon/chajian/12306rmad.plugin
+#!tg-group=https://t.me/lanjieguanggao
+#!category=12306
+#!tag=去广告, fmz200, 奶思
+#!system=iOS, iPadOS
+#!system_version = 
+#!loon_version = 
+#!date=2025-04-27 20:11:00
+#!support=12306
+#!remark=下方的所有规则都标注了对应的hostname，可能存在错误或者遗漏，欢迎反馈。对于无法/可选MITM的hostname都特别做了“如开启可自行添加主机名”提示，如果提示后面没有标注主机名则包含所有主机名，否则只包含提示语后面的主机名。
+
+[Argument]
+12306_enable = switch,true,false,tag=12306-脚本开关
+
+
+# =====================================
+# 脚本
+# =====================================
+[Script]
+# > 12306
+http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60, tag=12306, enable={12306_enable}
+
+
+# =====================================
+# MITM：中间人攻击，解密/跳过相关域名的内容，"-"开头为跳过
+# =====================================
+[MITM]
+hostname = ad.12306.cn
