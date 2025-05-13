@@ -16,3 +16,4 @@ payload:
   - DOMAIN-KEYWORD,bonify
   - DOMAIN-KEYWORD,bleap
   - DOMAIN-KEYWORD,revolut  
+  - DOMAIN-SUFFIX,ether.fi
