@@ -116,3 +116,5 @@ payload:
   # GiffGaff 分流
   - DOMAIN,report.giffgaff.gbqofs.io
   - DOMAIN-SUFFIX,giffgaff.com
+  # transfergo
+  - DOMAIN-KEYWORD,transfergo
