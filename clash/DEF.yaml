@@ -15,5 +15,6 @@ payload:
   - DOMAIN-KEYWORD,curve
   - DOMAIN-KEYWORD,bonify
   - DOMAIN-KEYWORD,bleap
+  - DOMAIN-KEYWORD,coca
   - DOMAIN-KEYWORD,revolut  
   - DOMAIN-SUFFIX,ether.fi
