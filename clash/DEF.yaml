@@ -18,3 +18,9 @@ payload:
   - DOMAIN-KEYWORD,coca
   - DOMAIN-KEYWORD,revolut  
   - DOMAIN-SUFFIX,ether.fi
+    # LemFi
+  - DOMAIN-SUFFIX,lemfi.com
+  - DOMAIN-SUFFIX,branch.io
+  - DOMAIN-SUFFIX,appsflyer.com
+  - DOMAIN-SUFFIX,customer.io
+  - DOMAIN-KEYWORD,sendwave
