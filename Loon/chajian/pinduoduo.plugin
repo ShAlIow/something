@@ -51,9 +51,9 @@ DOMAIN, th.pinduoduo.com, REJECT
 ^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes reject-dict
 
 [Script]
-http-response ^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub script-path = https://kelee.one/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 拼多多去广告
-http-response ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub script-path = https://kelee.one/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 精简首页
-http-response ^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render script-path = https://kelee.one/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 拼多多去广告
+http-response ^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub script-path = https://kelee.one/Resource/JavaScript/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 拼多多去广告
+http-response ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub script-path = https://kelee.one/Resource/JavaScript/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 精简首页
+http-response ^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render script-path = https://kelee.one/Resource/JavaScript/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body = true, tag = 拼多多去广告
 
 [Mitm]
 hostname = api.pinduoduo.com, api.yangkeduo.com
